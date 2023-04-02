@@ -10,8 +10,6 @@ interface HomeProps {
 }
 
 function Home({ databaseItems }: HomeProps) {
-  console.log(databaseItems);
-
   return <div>Home</div>;
 }
 
@@ -25,8 +23,6 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
   const databaseItems = await getDatabaseItems(process.env.DATABASE_ID);
 
   const parsedDatabaseItems = parseDatabaseItems(databaseItems);
-
-  console.log(parsedDatabaseItems);
 
   return {
     props: {
