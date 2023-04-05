@@ -18,7 +18,7 @@ function Header() {
     <>
       <header className="bg-white fixed top-0 w-full z-50">
         <nav className="p-4 flex flex-row justify-between max-w-5xl mx-auto">
-          <h1 className="text-black font-black text-2xl leading-9">
+          <h1 className="text-black font-black text-2xl leading-10">
             <Link href={"/"}>SeeYouJeong</Link>
           </h1>
           <ul className="flex flex-row gap-2 items-center">
