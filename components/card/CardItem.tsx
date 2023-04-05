@@ -2,6 +2,7 @@ import { ParsedDatabaseItem } from "@/utils/parseDatabaseItems";
 import Image from "next/image";
 import Link from "next/link";
 import IconRenderer from "./IconRenderer";
+import TagList from "./tag/TagList";
 
 interface CardItemProps {
   cardItem: ParsedDatabaseItem;
@@ -35,6 +36,7 @@ function CardItem({ cardItem }: CardItemProps) {
           </div>
         </a>
       </Link>
+      <TagList tags={tags} />
     </li>
   );
 }
