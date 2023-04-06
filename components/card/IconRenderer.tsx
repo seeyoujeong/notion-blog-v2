@@ -3,9 +3,10 @@ import Image from "next/image";
 
 interface IconRendererProps {
   icon: ParsedDatabaseItem["icon"];
+  alt: string;
 }
 
-function IconRenderer({ icon }: IconRendererProps) {
+function IconRenderer({ icon, alt }: IconRendererProps) {
   if (!icon) return null;
 
   if (icon.type === "emoji") return <span>{icon.emoji}</span>;
@@ -15,7 +16,7 @@ function IconRenderer({ icon }: IconRendererProps) {
   return (
     <Image
       src={iconUrl}
-      alt="icon"
+      alt={`${alt} icon`}
       width={28}
       height={28}
       className="rounded-full"
