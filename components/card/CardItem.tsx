@@ -28,10 +28,14 @@ function CardItem({ cardItem }: CardItemProps) {
           <div className="p-4 flex flex-col gap-4">
             <h4 className="font-bold text-2xl group-hover:text-gray-700 transition-colors flex flex-row items-center gap-2">
               <IconRenderer icon={icon} alt={title} />
-              {title}
+              <span className="overflow-hidden text-ellipsis whitespace-nowrap">
+                {title}
+              </span>
             </h4>
             {description ? (
-              <p className="font-medium text-gray-600">{description}</p>
+              <p className="font-medium text-gray-600 overflow-hidden text-ellipsis whitespace-nowrap">
+                {description}
+              </p>
             ) : null}
             <time className="font-medium text-gray-700">{published}</time>
           </div>
