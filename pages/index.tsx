@@ -35,5 +35,6 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
     props: {
       databaseItems: parsedDatabaseItems,
     },
+    revalidate: 180,
   };
 };

@@ -4,27 +4,25 @@ import { GetStaticProps } from "next";
 import { ExtendedRecordMap } from "notion-types";
 import { ParsedUrlQuery } from "querystring";
 
-interface BlogPageProps {
+interface DetailBlogPageProps {
   recordMap: ExtendedRecordMap;
 }
 
-const BlogPage = ({ recordMap }: BlogPageProps) => {
+const BlogPage = ({ recordMap }: DetailBlogPageProps) => {
   return <NotionPageRenderer recordMap={recordMap} />;
 };
 
 export default BlogPage;
 
-interface BlogPageParams extends ParsedUrlQuery {
+interface DetailBlogPageParams extends ParsedUrlQuery {
   pageId: string;
 }
 
 export const getStaticProps: GetStaticProps<
-  BlogPageProps,
-  BlogPageParams
+  DetailBlogPageProps,
+  DetailBlogPageParams
 > = async ({ params }) => {
   const { pageId } = params!;
-
-  console.log(params);
 
   const recordMap = await getPageContent(pageId);
 
@@ -32,6 +30,7 @@ export const getStaticProps: GetStaticProps<
     props: {
       recordMap,
     },
+    revalidate: 180,
   };
 };
 
@@ -50,6 +49,6 @@ export const getStaticPaths = async () => {
 
   return {
     paths,
-    fallback: true,
+    fallback: "blocking",
   };
 };
