@@ -13,7 +13,7 @@ function TagItem({ tagItem }: TagItemProps) {
     <li>
       <Link href={`/tag/${name.toLowerCase()}`}>
         <a
-          className="hover:underline px-2 py-1 rounded-full font-light"
+          className="text-sm font-light block hover:-translate-y-1 px-2 py-1 rounded-2xl hover:shadow-md transition-all hover:underline text-gray-800"
           style={{
             backgroundColor: COLOR_TABLE[color],
           }}
