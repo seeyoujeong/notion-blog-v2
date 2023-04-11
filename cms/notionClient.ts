@@ -1,4 +1,5 @@
 import { Client } from "@notionhq/client";
+import { NotionAPI } from "notion-client";
 
 export const notionClient = new Client({
   auth: process.env.NOTION_TOKEN,
@@ -23,3 +24,11 @@ export async function getDatabaseItems(databaseId: string) {
 
   return response.results;
 }
+
+export const unofficialNotionApi = new NotionAPI();
+
+export const getPageContent = async (pageId: string) => {
+  const recordMap = await unofficialNotionApi.getPage(pageId);
+
+  return recordMap;
+};
