@@ -68,3 +68,32 @@
 .notion-page-content {
   width: 90%;
 }
+
+.notion-property-multi_select {
+  list-style: none;
+}
+
+.notion-hr {
+  height: 1px;
+  background-color: rgb(222, 222, 222);
+}
+
+.notion-blank {
+  padding: 0;
+  margin: 0;
+  height: 1.25rem;
+}
+
+.notion-text {
+  padding: 0 2px;
+  margin: 0;
+}
+
+.notion-simple-table {
+  margin-top: 1rem;
+  margin-left: 0.2rem;
+  
+  td {
+    border: 1px solid gray;
+  }
+}
