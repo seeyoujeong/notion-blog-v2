@@ -13,7 +13,7 @@ function TagIndex({ allTags }: TagIndexProps) {
   return (
     <div className="min-h-[calc(100vh-72px-88px)]">
       <TagHeroSection />
-      <TagContainer tags={allTags} />{" "}
+      <TagContainer tags={allTags} />
     </div>
   );
 }

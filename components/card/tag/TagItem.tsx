@@ -11,7 +11,7 @@ function TagItem({ tagItem }: TagItemProps) {
 
   return (
     <li>
-      <Link href={`/tag/${name.toLowerCase()}`}>
+      <Link href={`/tags/${name}`}>
         <a
           className="text-sm font-light block hover:-translate-y-1 px-2 py-1 rounded-2xl hover:shadow-md transition-all hover:underline text-gray-800"
           style={{
