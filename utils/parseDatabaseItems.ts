@@ -20,6 +20,8 @@ export function parseDatabaseItems(
       return acc;
     }
 
+    if (item.parent.type !== "database_id") return acc;
+
     const { id, cover, icon } = item;
     const { Tags, Published, Description, Name } = item.properties;
 
