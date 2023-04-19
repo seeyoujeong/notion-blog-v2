@@ -11,7 +11,7 @@ function CardList({ cardItems }: CardListProps) {
     return (
       <div className="flex flex-col justify-center items-center">
         <MdOutlineSearchOff size={"4rem"} />
-        <p className="text-2xl font-bold">No Items Found!</p>
+        <p className="text-2xl font-semibold">No Items Found!</p>
       </div>
     );
   }

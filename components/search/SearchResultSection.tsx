@@ -41,7 +41,7 @@ function NotDataIndicator() {
   return (
     <div className="flex flex-col justify-center items-center">
       <AiOutlineFileSearch size={"4rem"} />
-      <p className="text-2xl font-bold">Please Search Title!</p>
+      <p className="text-2xl font-semibold">Please Search Title!</p>
     </div>
   );
 }

@@ -28,13 +28,13 @@ function SearchInputSection() {
   }, [searchQuery]);
 
   return (
-    <section className="bg-black">
-      <div className="w-4/5 max-w-5xl mx-auto py-12 px-4">
+    <section className="">
+      <div className="w-5/6 max-w-5xl mx-auto py-10 lg:px-4">
         <form className="relative" onSubmit={onSubmit}>
           <input
             type="text"
             placeholder="Search"
-            className="p-4 text-xl w-full rounded-2xl outline-none"
+            className="p-4 text-xl w-full rounded-2xl outline-none border-2 border-black"
             value={value}
             onChange={onChange}
           />

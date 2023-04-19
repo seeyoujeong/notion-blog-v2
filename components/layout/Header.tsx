@@ -16,7 +16,7 @@ const navLinks = [
 function Header() {
   return (
     <>
-      <header className="bg-white fixed top-0 w-full z-50">
+      <header className="bg-white fixed top-0 w-full z-50 drop-shadow">
         <nav className="p-4 flex flex-row justify-between max-w-5xl mx-auto">
           <h1 className="text-black font-black text-2xl leading-10">
             <Link href={"/"}>seeyoujeong</Link>
