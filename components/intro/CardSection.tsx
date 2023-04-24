@@ -1,7 +1,7 @@
+import { ITEMS_PER_PAGE } from "@/const/const";
 import { ParsedDatabaseItem } from "@/utils/parseDatabaseItems";
 import CardList from "../card/CardList";
 import Pagination from "../common/Pagination";
-import { ITEMS_PER_PAGE } from "@/const/const";
 
 interface CardSectionProps {
   cardItems: ParsedDatabaseItem[];
