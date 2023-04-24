@@ -11,6 +11,6 @@ export const COLOR_TABLE = {
   default: "#c8d6e5",
 };
 
-export const ITEMS_PER_PAGE = 1;
+export const ITEMS_PER_PAGE = 3;
 
 export const PAGINATION_RANGE = 3;
