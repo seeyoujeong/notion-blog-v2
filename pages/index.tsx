@@ -1,21 +1,23 @@
 import { getDatabaseItems } from "@/cms/notionClient";
 import CardSection from "@/components/intro/CardSection";
 import HeroSection from "@/components/intro/HeroSection";
+import { ITEMS_PER_PAGE } from "@/const/const";
 import {
   ParsedDatabaseItem,
   parseDatabaseItems,
 } from "@/utils/parseDatabaseItems";
 import { GetStaticProps } from "next";
 
-interface HomeProps {
+export interface HomeProps {
   databaseItems: ParsedDatabaseItem[];
+  totalLength: number;
 }
 
-function Home({ databaseItems }: HomeProps) {
+function Home({ databaseItems, totalLength }: HomeProps) {
   return (
     <div>
       <HeroSection />
-      <CardSection cardItems={databaseItems} />
+      <CardSection cardItems={databaseItems} totalLength={totalLength} />
     </div>
   );
 }
@@ -29,11 +31,14 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
 
   const databaseItems = await getDatabaseItems(process.env.DATABASE_ID);
 
-  const parsedDatabaseItems = parseDatabaseItems(databaseItems);
+  const parsedDatabaseItems = parseDatabaseItems(
+    databaseItems.slice(0, ITEMS_PER_PAGE)
+  );
 
   return {
     props: {
       databaseItems: parsedDatabaseItems,
+      totalLength: databaseItems.length,
     },
     revalidate: 180,
   };
