@@ -47,6 +47,7 @@ function NotionPageRenderer({ recordMap }: NotionPageRendererProps) {
       disableHeader
       fullPage
       showTableOfContents
+      previewImages={!!recordMap?.preview_images}
       components={{
         Code,
         Collection,

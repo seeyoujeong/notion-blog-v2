@@ -1,5 +1,6 @@
 import { getDatabaseItems, getPageContent } from "@/cms/notionClient";
 import NotionPageRenderer from "@/components/notion/NotionPageRenderer";
+import { insertPreviewImageToRecordMap } from "@/utils/previewImage";
 import { GetStaticProps } from "next";
 import { ExtendedRecordMap } from "notion-types";
 import { ParsedUrlQuery } from "querystring";
@@ -26,9 +27,14 @@ export const getStaticProps: GetStaticProps<
 
   const recordMap = await getPageContent(pageId);
 
+  const previewImages = await insertPreviewImageToRecordMap(recordMap);
+
   return {
     props: {
-      recordMap,
+      recordMap: {
+        ...recordMap,
+        preview_images: previewImages,
+      },
     },
     revalidate: 180,
   };
