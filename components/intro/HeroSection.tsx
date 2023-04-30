@@ -12,12 +12,8 @@ function HeroSection() {
         </div>
 
         <h2 className="font-black text-6xl leading-[1.2] break-keep">
-          Hello ワールド!
+          헬로, ワールド!
         </h2>
-        {/* 
-        <div className="flex justify-center md:max-w-md md:relative md:left-10">
-          <BsEmojiSmile size={"4rem"} />
-        </div> */}
 
         <p className="font-light text-xl text-gray-600 md:max-w-xl break-keep">
           공부한 내용을 정리하는 블로그입니다. 대부분 컴퓨터 관련 내용...ㅎ
