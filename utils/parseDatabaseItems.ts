@@ -3,7 +3,7 @@ import { MultiSelectPropertyItemObjectResponse } from "@notionhq/client/build/sr
 import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import { PreviewImageType } from "./previewImage";
 
-export interface ParsedDatabaseItem {
+export interface ParsedDatabaseItemType {
   id: string;
   cover: string;
   icon: PageObjectResponse["icon"];
@@ -17,7 +17,7 @@ export interface ParsedDatabaseItem {
 export function parseDatabaseItems(
   items: Awaited<ReturnType<typeof getDatabaseItems>>
 ) {
-  const parsedItems = items.reduce<ParsedDatabaseItem[]>((acc, item) => {
+  const parsedItems = items.reduce<ParsedDatabaseItemType[]>((acc, item) => {
     if (!("properties" in item)) {
       return acc;
     }
@@ -43,7 +43,7 @@ export function parseDatabaseItems(
 
     const tags = Tags.type === "multi_select" ? Tags.multi_select : [];
 
-    const parsedResult: ParsedDatabaseItem = {
+    const parsedResult: ParsedDatabaseItemType = {
       id,
       cover: parsedCover,
       icon,

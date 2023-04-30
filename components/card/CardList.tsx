@@ -1,9 +1,9 @@
-import { ParsedDatabaseItem } from "@/utils/parseDatabaseItems";
+import { ParsedDatabaseItemType } from "@/utils/parseDatabaseItems";
 import CardItem from "./CardItem";
 import { MdOutlineSearchOff } from "react-icons/md";
 
 interface CardListProps {
-  cardItems: ParsedDatabaseItem[];
+  cardItems: ParsedDatabaseItemType[];
 }
 
 function CardList({ cardItems }: CardListProps) {

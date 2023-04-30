@@ -1,12 +1,12 @@
 import { getSearchResults } from "@/cms/notionClient";
 import {
-  type ParsedDatabaseItem,
+  type ParsedDatabaseItemType,
   parseDatabaseItems,
 } from "@/utils/parseDatabaseItems";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 export interface GetSearchResponse {
-  databaseItems: ParsedDatabaseItem[];
+  databaseItems: ParsedDatabaseItemType[];
 }
 
 export default async function handler(

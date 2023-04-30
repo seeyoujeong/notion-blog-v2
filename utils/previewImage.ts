@@ -1,7 +1,7 @@
 import got from "got";
 import lqip from "lqip-modern";
 import { ExtendedRecordMap, PreviewImage, PreviewImageMap } from "notion-types";
-import { ParsedDatabaseItem } from "./parseDatabaseItems";
+import { ParsedDatabaseItemType } from "./parseDatabaseItems";
 import { getPageImageUrls } from "notion-utils";
 import { defaultMapImageUrl } from "react-notion-x";
 
@@ -30,7 +30,9 @@ export async function makePreviewImage(url: string) {
 
 export type PreviewImageType = Awaited<ReturnType<typeof makePreviewImage>>;
 
-export async function insertPreviewImage(parsedItems: ParsedDatabaseItem[]) {
+export async function insertPreviewImage(
+  parsedItems: ParsedDatabaseItemType[]
+) {
   const itemsWithPreviewImage = await Promise.all(
     parsedItems.map(async (item) => {
       const previewImage = await makePreviewImage(item.cover);

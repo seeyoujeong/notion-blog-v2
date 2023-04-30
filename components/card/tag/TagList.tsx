@@ -1,8 +1,8 @@
-import { ParsedDatabaseItem } from "@/utils/parseDatabaseItems";
+import { ParsedDatabaseItemType } from "@/utils/parseDatabaseItems";
 import TagItem from "./TagItem";
 
 interface TagListProps {
-  tags: ParsedDatabaseItem["tags"];
+  tags: ParsedDatabaseItemType["tags"];
 }
 
 function TagList({ tags }: TagListProps) {

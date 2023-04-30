@@ -1,4 +1,4 @@
-import { ParsedDatabaseItem } from "@/utils/parseDatabaseItems";
+import { ParsedDatabaseItemType } from "@/utils/parseDatabaseItems";
 import Image from "next/image";
 import Link from "next/link";
 import IconRenderer from "./IconRenderer";
@@ -6,7 +6,7 @@ import TagList from "./tag/TagList";
 import { DEFAULT_BLUR_BASE64 } from "@/const/const";
 
 interface CardItemProps {
-  cardItem: ParsedDatabaseItem;
+  cardItem: ParsedDatabaseItemType;
 }
 
 function CardItem({ cardItem }: CardItemProps) {

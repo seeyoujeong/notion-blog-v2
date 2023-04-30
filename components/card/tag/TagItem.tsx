@@ -1,9 +1,9 @@
 import { COLOR_TABLE } from "@/const/const";
-import { ParsedDatabaseItem } from "@/utils/parseDatabaseItems";
+import { ParsedDatabaseItemType } from "@/utils/parseDatabaseItems";
 import Link from "next/link";
 
 interface TagItemProps {
-  tagItem: ParsedDatabaseItem["tags"][number];
+  tagItem: ParsedDatabaseItemType["tags"][number];
 }
 
 function TagItem({ tagItem }: TagItemProps) {

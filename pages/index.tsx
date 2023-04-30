@@ -3,14 +3,14 @@ import CardSection from "@/components/intro/CardSection";
 import HeroSection from "@/components/intro/HeroSection";
 import { ITEMS_PER_PAGE } from "@/const/const";
 import {
-  ParsedDatabaseItem,
+  ParsedDatabaseItemType,
   parseDatabaseItems,
 } from "@/utils/parseDatabaseItems";
 import { insertPreviewImage } from "@/utils/previewImage";
 import { GetStaticProps } from "next";
 
 export interface HomeProps {
-  databaseItems: ParsedDatabaseItem[];
+  databaseItems: ParsedDatabaseItemType[];
   totalLength: number;
 }
 

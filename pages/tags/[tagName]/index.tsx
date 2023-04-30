@@ -4,13 +4,13 @@ import TagHeroSection from "@/components/tags/TagHeroSection";
 import { ITEMS_PER_PAGE } from "@/const/const";
 import { getAllTags } from "@/utils/getAllTags";
 import { parseDatabaseItems } from "@/utils/parseDatabaseItems";
-import { ParsedDatabaseItem } from "@/utils/parseDatabaseItems";
+import { ParsedDatabaseItemType } from "@/utils/parseDatabaseItems";
 import { insertPreviewImage } from "@/utils/previewImage";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 
 export interface TagNamePageProps {
-  databaseItems: ParsedDatabaseItem[];
+  databaseItems: ParsedDatabaseItemType[];
   totalLength: number;
   tagName: string;
 }

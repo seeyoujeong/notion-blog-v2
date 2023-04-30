@@ -1,10 +1,10 @@
 import { ITEMS_PER_PAGE } from "@/const/const";
-import { ParsedDatabaseItem } from "@/utils/parseDatabaseItems";
+import { ParsedDatabaseItemType } from "@/utils/parseDatabaseItems";
 import CardList from "../card/CardList";
 import Pagination from "../common/Pagination";
 
 interface CardSectionProps {
-  cardItems: ParsedDatabaseItem[];
+  cardItems: ParsedDatabaseItemType[];
   totalLength: number;
 }
 
