@@ -6,6 +6,7 @@ import {
   ParsedDatabaseItem,
   parseDatabaseItems,
 } from "@/utils/parseDatabaseItems";
+import { insertPreviewImage } from "@/utils/previewImage";
 import { GetStaticProps } from "next";
 
 export interface HomeProps {
@@ -35,9 +36,13 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
     databaseItems.slice(0, ITEMS_PER_PAGE)
   );
 
+  const parsedDatabaseItemWithPreview = await insertPreviewImage(
+    parsedDatabaseItems
+  );
+
   return {
     props: {
-      databaseItems: parsedDatabaseItems,
+      databaseItems: parsedDatabaseItemWithPreview,
       totalLength: databaseItems.length,
     },
     revalidate: 180,

@@ -6,6 +6,7 @@ import TagNamePage, {
 } from "@/pages/tags/[tagName]/index";
 import { getAllTags } from "@/utils/getAllTags";
 import { parseDatabaseItems } from "@/utils/parseDatabaseItems";
+import { insertPreviewImage } from "@/utils/previewImage";
 import { GetStaticPaths, GetStaticProps } from "next";
 
 function TagNameWithPage({
@@ -45,9 +46,13 @@ export const getStaticProps: GetStaticProps<
     databaseItems.slice((page - 1) * ITEMS_PER_PAGE, page * ITEMS_PER_PAGE)
   );
 
+  const parsedDatabaseItemWithPreview = await insertPreviewImage(
+    parsedDatabaseItems
+  );
+
   return {
     props: {
-      databaseItems: parsedDatabaseItems,
+      databaseItems: parsedDatabaseItemWithPreview,
       totalLength: databaseItems.length,
       tagName,
     },

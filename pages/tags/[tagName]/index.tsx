@@ -5,6 +5,7 @@ import { ITEMS_PER_PAGE } from "@/const/const";
 import { getAllTags } from "@/utils/getAllTags";
 import { parseDatabaseItems } from "@/utils/parseDatabaseItems";
 import { ParsedDatabaseItem } from "@/utils/parseDatabaseItems";
+import { insertPreviewImage } from "@/utils/previewImage";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 
@@ -51,9 +52,13 @@ export const getStaticProps: GetStaticProps<
     databaseItems.slice(0, ITEMS_PER_PAGE)
   );
 
+  const parsedDatabaseItemWithPreview = await insertPreviewImage(
+    parsedDatabaseItems
+  );
+
   return {
     props: {
-      databaseItems: parsedDatabaseItems,
+      databaseItems: parsedDatabaseItemWithPreview,
       totalLength: databaseItems.length,
       tagName,
     },

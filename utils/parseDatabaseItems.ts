@@ -1,6 +1,7 @@
 import { getDatabaseItems } from "@/cms/notionClient";
 import { MultiSelectPropertyItemObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
+import { PreviewImageType } from "./previewImage";
 
 export interface ParsedDatabaseItem {
   id: string;
@@ -10,6 +11,7 @@ export interface ParsedDatabaseItem {
   published: string;
   description: string;
   title: string;
+  previewImage?: PreviewImageType;
 }
 
 export function parseDatabaseItems(
