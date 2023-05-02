@@ -3,7 +3,7 @@ import Giscus from "@giscus/react";
 function Comments() {
   return (
     <section>
-      <div className="w-4/5 max-w-5xl mx-auto pt-10 pb-8 px-4">
+      <div className="w-4/5 max-w-5xl mx-auto pt-10 pb-8">
         <Giscus
           id="comments"
           repo="seeyoujeong/notion-blog"

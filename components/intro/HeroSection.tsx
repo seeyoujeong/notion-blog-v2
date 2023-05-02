@@ -20,7 +20,7 @@ function HeroSection() {
         </p>
 
         <Link href={"/about"}>
-          <button className="px-4 py-2 border-2 border-black rounded-3xl font-semibold w-28 mx-auto md:mx-0 hover:bg-black hover:text-white">
+          <button className="px-4 py-2 border border-black rounded-3xl font-semibold w-28 mx-auto md:mx-0 hover:bg-black hover:text-white">
             About Me
           </button>
         </Link>

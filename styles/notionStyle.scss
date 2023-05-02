@@ -65,10 +65,6 @@
   flex: 0;
 }
 
-.notion-page-content {
-  width: 90%;
-}
-
 .notion-property-multi_select {
   list-style: none;
 }
@@ -87,6 +83,7 @@
 .notion-text {
   padding: 0 2px;
   margin: 0;
+  line-height: 1.7;
 }
 
 .notion-simple-table {
