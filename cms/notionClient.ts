@@ -53,6 +53,22 @@ export const unofficialNotionApi = new NotionAPI();
 export const getPageContent = async (pageId: string) => {
   const recordMap = await unofficialNotionApi.getPage(pageId);
 
+  const signedUrls = recordMap.signed_urls;
+
+  const filteredSignedUrls = Object.keys(signedUrls).reduce<
+    typeof recordMap.signed_urls
+  >((acc, key) => {
+    if (signedUrls[key].includes("expirationTimestamp")) {
+      return acc;
+    }
+
+    acc[key] = signedUrls[key];
+
+    return acc;
+  }, {});
+
+  recordMap.signed_urls = filteredSignedUrls;
+
   return recordMap;
 };
 
@@ -70,4 +86,12 @@ export async function getSearchResults(query: string) {
   });
 
   return response.results as (PageObjectResponse | PartialPageObjectResponse)[];
+}
+
+export async function getPage(pageId: string) {
+  const response = await notionClient.pages.retrieve({
+    page_id: pageId,
+  });
+
+  return response;
 }

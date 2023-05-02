@@ -1,6 +1,8 @@
 import { getDatabaseItems } from "@/cms/notionClient";
-import { MultiSelectPropertyItemObjectResponse } from "@notionhq/client/build/src/api-endpoints";
-import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
+import {
+  MultiSelectPropertyItemObjectResponse,
+  PageObjectResponse,
+} from "@notionhq/client/build/src/api-endpoints";
 import { PreviewImageType } from "./previewImage";
 
 export interface ParsedDatabaseItemType {
@@ -12,6 +14,10 @@ export interface ParsedDatabaseItemType {
   description: string;
   title: string;
   previewImage?: PreviewImageType;
+  proxy: {
+    cover: string;
+    icon: string;
+  };
 }
 
 export function parseDatabaseItems(
@@ -24,7 +30,7 @@ export function parseDatabaseItems(
 
     if (item.parent.type !== "database_id") return acc;
 
-    const { id, cover, icon } = item;
+    const { id, cover, icon, last_edited_time } = item;
     const { Tags, Published, Description, Name } = item.properties;
 
     const parsedCover =
@@ -43,6 +49,9 @@ export function parseDatabaseItems(
 
     const tags = Tags.type === "multi_select" ? Tags.multi_select : [];
 
+    const proxyCoverUrl = `/api/getImage?type=cover&pageId=${id}&lastEditedTime=${last_edited_time}`;
+    const proxyIconUrl = `/api/getImage?type=icon&pageId=${id}&lastEditedTime=${last_edited_time}`;
+
     const parsedResult: ParsedDatabaseItemType = {
       id,
       cover: parsedCover,
@@ -51,6 +60,10 @@ export function parseDatabaseItems(
       published,
       description,
       title,
+      proxy: {
+        cover: proxyCoverUrl,
+        icon: proxyIconUrl,
+      },
     };
 
     return [...acc, parsedResult];

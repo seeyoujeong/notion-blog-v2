@@ -10,7 +10,7 @@ interface CardItemProps {
 }
 
 function CardItem({ cardItem }: CardItemProps) {
-  const { cover, description, icon, id, published, tags, title, previewImage } =
+  const { description, icon, id, published, tags, title, previewImage, proxy } =
     cardItem;
 
   return (
@@ -19,7 +19,7 @@ function CardItem({ cardItem }: CardItemProps) {
         <a className="flex-grow">
           <div className="relative aspect-[1.3/1]">
             <Image
-              src={cover}
+              src={proxy.cover}
               alt={title}
               layout="fill"
               objectFit="cover"
@@ -31,7 +31,7 @@ function CardItem({ cardItem }: CardItemProps) {
 
           <div className="p-4 flex flex-col gap-4">
             <h4 className="font-bold text-2xl group-hover:text-gray-700 transition-colors flex flex-row items-center gap-2">
-              <IconRenderer icon={icon} alt={title} />
+              <IconRenderer icon={icon} alt={title} proxyIconUrl={proxy.icon} />
               <span className="overflow-hidden text-ellipsis whitespace-nowrap">
                 {title}
               </span>
