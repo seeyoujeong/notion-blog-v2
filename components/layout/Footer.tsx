@@ -4,7 +4,7 @@ import { AiOutlineGithub, AiOutlineInstagram } from "react-icons/ai";
 function Footer() {
   return (
     <footer className="bg-gray-100">
-      <div className="flex flex-col sm:flex-row gap-2 sm:gap-0 justify-between items-center max-w-5xl mx-auto py-4 sm:p-8">
+      <div className="flex flex-col-reverse sm:flex-row gap-2 sm:gap-0 justify-between items-center max-w-5xl mx-auto py-4 sm:p-8">
         <div className="text-gray-600">
           &copy; 2023 seeyoujeong All rights reserved.
         </div>
