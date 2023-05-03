@@ -1,5 +1,4 @@
 import { getPage } from "@/cms/notionClient";
-import { parseDatabaseItems } from "@/utils/parseDatabaseItems";
 import got from "got";
 import { NextApiRequest, NextApiResponse } from "next";
 
@@ -14,13 +13,18 @@ export default async function handler(
 
   const pageItem = await getPage(pageId.toString());
 
-  const { cover, icon } = parseDatabaseItems([pageItem])[0];
+  if (!("properties" in pageItem)) throw new Error("pageItem is not exist");
+
+  const { cover, icon } = pageItem;
+
+  const parsedCover =
+    (cover?.type === "file" ? cover.file.url : cover?.external.url) ?? "";
 
   let url = "";
 
   switch (type.toString()) {
     case "cover":
-      url = cover;
+      url = parsedCover;
       break;
     case "icon":
       if (icon?.type === "emoji") {
