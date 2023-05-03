@@ -1,18 +1,30 @@
 import { getDatabaseItems, getPageContent } from "@/cms/notionClient";
 import Comments from "@/components/common/Comments";
+import PageHead, { PageHeadProps } from "@/components/layout/PageHead";
 import NotionPageRenderer from "@/components/notion/NotionPageRenderer";
 import { insertPreviewImageToRecordMap } from "@/utils/previewImage";
 import { GetStaticProps } from "next";
 import { ExtendedRecordMap } from "notion-types";
+import { getPageProperty, getPageTitle } from "notion-utils";
 import { ParsedUrlQuery } from "querystring";
 
 interface DetailBlogPageProps {
   recordMap: ExtendedRecordMap;
+  seo: PageHeadProps;
 }
 
-const BlogPage = ({ recordMap }: DetailBlogPageProps) => {
+const BlogPage = ({
+  recordMap,
+  seo: { title, description, keywords, image },
+}: DetailBlogPageProps) => {
   return (
     <div>
+      <PageHead
+        title={title}
+        description={description}
+        keywords={keywords}
+        image={image}
+      />
       <NotionPageRenderer recordMap={recordMap} />
       <Comments />
     </div>
@@ -35,11 +47,32 @@ export const getStaticProps: GetStaticProps<
 
   const previewImages = await insertPreviewImageToRecordMap(recordMap);
 
+  const propertyBlock = Object.values(recordMap.block)[0].value;
+
+  const title = getPageTitle(recordMap);
+  const description = getPageProperty<string>(
+    "Description",
+    propertyBlock,
+    recordMap
+  );
+  const keywords = getPageProperty<string[]>(
+    "Tags",
+    propertyBlock,
+    recordMap
+  ).join(", ");
+  const image = `/api/getImage?type=cover&pageId=${pageId}`;
+
   return {
     props: {
       recordMap: {
         ...recordMap,
         preview_images: previewImages,
+      },
+      seo: {
+        title,
+        description,
+        keywords,
+        image,
       },
     },
     revalidate: 180,
