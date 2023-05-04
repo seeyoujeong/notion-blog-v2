@@ -22,7 +22,7 @@ function TagNamePage({
   tagName,
 }: TagNamePageProps) {
   return (
-    <div className="min-h-[calc(100vh-72px-88px)]">
+    <div className="min-h-[calc(100vh-72px-96px)]">
       <PageHead title={`#${tagName}`} keywords={tagName} />
       <TagHeroSection title={`#${tagName}`} />
       <CardSection cardItems={databaseItems} totalLength={totalLength} />

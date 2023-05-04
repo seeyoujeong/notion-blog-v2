@@ -12,7 +12,7 @@ interface AboutPageProps {
 
 function AboutPage({ recordMap, ogImage }: AboutPageProps) {
   return (
-    <div className="min-h-[calc(100vh-72px-88px)]">
+    <div className="min-h-[calc(100vh-72px-96px)]">
       <PageHead title="About" image={ogImage} />
       <NotionPageRenderer recordMap={recordMap} />
     </div>

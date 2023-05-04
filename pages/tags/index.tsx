@@ -14,7 +14,7 @@ function TagIndex({ allTags }: TagIndexProps) {
   const keywords = allTags.map((tag) => tag.name).join(", ");
 
   return (
-    <div className="min-h-[calc(100vh-72px-88px)]">
+    <div className="min-h-[calc(100vh-72px-96px)]">
       <PageHead title="All Tags" keywords={keywords} />
       <TagHeroSection />
       <TagContainer tags={allTags} />

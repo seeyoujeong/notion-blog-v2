@@ -4,7 +4,7 @@ import SearchResultSection from "@/components/search/SearchResultSection";
 
 function Search() {
   return (
-    <div className="min-h-[calc(100vh-72px-88px)]">
+    <div className="min-h-[calc(100vh-72px-96px)]">
       <PageHead title="Search" />
       <SearchInputSection />
       <SearchResultSection />
