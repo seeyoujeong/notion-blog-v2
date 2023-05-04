@@ -16,7 +16,7 @@ export interface HomeProps {
 
 function Home({ databaseItems, totalLength }: HomeProps) {
   return (
-    <div>
+    <div className="min-h-[calc(100vh-72px-88px)]">
       <HeroSection />
       <CardSection cardItems={databaseItems} totalLength={totalLength} />
     </div>
