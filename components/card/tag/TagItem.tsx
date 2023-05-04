@@ -9,6 +9,10 @@ interface TagItemProps {
 function TagItem({ tagItem }: TagItemProps) {
   const { name, color } = tagItem;
 
+  const replaceUnderbarName = name.includes("_")
+    ? name.replaceAll("_", " ")
+    : name;
+
   return (
     <li>
       <Link href={`/tags/${name}`}>
@@ -18,7 +22,7 @@ function TagItem({ tagItem }: TagItemProps) {
             backgroundColor: COLOR_TABLE[color],
           }}
         >
-          #{name}
+          #{replaceUnderbarName}
         </a>
       </Link>
     </li>
