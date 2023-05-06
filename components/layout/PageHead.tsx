@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
+import GA from "./GA";
 
 const DEFAULT_TITLE = "seeyoujeong blog";
 const DEFAULT_DESCRIPTION = "seeyoujoeng's devlog";
@@ -62,6 +63,8 @@ function PageHead({
       <meta name="twitter:description" content={pageDescription} />
       <meta name="twitter:image" content={pageImage} />
       <meta property="twitter:image:alt" content={pageTitle} />
+
+      <GA />
     </Head>
   );
 }
