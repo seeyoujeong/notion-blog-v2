@@ -3,7 +3,7 @@ import CardList from "../card/CardList";
 import { GetSearchResponse } from "@/pages/api/getSearch";
 import useSWR from "swr";
 import LoadingSpinner from "../common/LoadingSpinner";
-import { AiOutlineFileSearch } from "react-icons/ai";
+import { TfiSearch } from "react-icons/tfi";
 
 function SearchResultSection() {
   const { query } = useRouter();
@@ -40,8 +40,10 @@ export default SearchResultSection;
 function NotDataIndicator() {
   return (
     <div className="flex flex-col justify-center items-center">
-      <AiOutlineFileSearch size={"4rem"} />
-      <p className="text-2xl font-semibold">Please Search Title!</p>
+      <TfiSearch size={"3rem"} />
+      <p className="text-xl text-center pt-2 break-keep">
+        제목을 입력해주세요!
+      </p>
     </div>
   );
 }
