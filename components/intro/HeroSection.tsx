@@ -18,12 +18,6 @@ function HeroSection() {
         <p className="font-light text-xl text-gray-600 md:max-w-xl break-keep">
           정리와 기록을 위한 블로그
         </p>
-
-        <Link href={"/about"}>
-          <button className="px-4 py-2 border border-black rounded-3xl font-semibold w-28 mx-auto md:mx-0 hover:bg-black hover:text-white">
-            About Me
-          </button>
-        </Link>
       </div>
     </section>
   );
